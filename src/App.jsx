@@ -1,9 +1,14 @@
 import React from "react"; // Import React
-import HomePage from "./components/HomePage";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Favourites from "./pages/Favourites";
 function App() {
   return (
     <>
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/favourites" element={<Favourites />}></Route>
+      </Routes>
     </>
   );
 }
