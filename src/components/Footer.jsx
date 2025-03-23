@@ -7,7 +7,7 @@ function Footer() {
   return (
     <div className="w-screen bg-black h-20 flex  justify-between mt-10 px-20 py-5">
       <div>
-        <h1 className="text-3xl font-bold">MOVIES</h1>
+        <h1 className="text-3xl font-bold pt-4">MOVIES</h1>
       </div>
       <div className="bg-white rounded-full mx-auto w-50 h-12 flex justify-between py-2 px-3">
         <div>
@@ -20,7 +20,7 @@ function Footer() {
           <img className=" mt-1" src={twitter} alt="" />
         </div>
       </div>
-      <div className="pt-4">
+      <div className="pt-6">
         <p>&copy; 2025 Talana Tefo</p>
       </div>
     </div>
