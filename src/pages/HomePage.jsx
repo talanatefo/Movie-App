@@ -7,13 +7,10 @@ import MoviesGrid from "../components/MoviesGrid";
 function HomePage() {
   return (
     <>
-      <div className="h-screen bg-gradient-to-b from-[#204725] to-[#030b07] text-white">
-        <Navbar />
+      <div>
         <Searchbar />
         <MoviesGrid />
-        <Footer />
       </div>
-      <div className="h-screen"></div>
     </>
   );
 }
