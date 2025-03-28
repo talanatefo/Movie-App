@@ -16,17 +16,6 @@ function MovieCard() {
   return (
     <div className=" h-40 w-35 p-2 bg-[#152D18] rounded-2xl  ">
       <div className="flex flex-col justify-between ">
-        {movies.map((movie) => (
-          <div key={movie.id}>
-            <img
-              className="w-180 h-280"
-              src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
-            />
-            <p>
-              {movie.title} {movie.year}
-            </p>
-          </div>
-        ))}
         <div>
           <img
             // src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
