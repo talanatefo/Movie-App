@@ -1,13 +1,35 @@
 import React from "react";
 
-function MovieCard({ movie }) {
-  function LikedMovieBtn() {}
+function MovieCard() {
+  const [movies, setMovies] = React.useState([]);
+
+  useEffect(() => {
+    let url =
+      " https://api.themoviedb.org/3/discover/movie?api_key=d93715c6e63a832323f7558c63304a39";
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.results))
+      .catch((error) => console.error("error fetching data"));
+  });
+
+  function MovieCard() {}
   return (
     <div className=" h-40 w-35 p-2 bg-[#152D18] rounded-2xl  ">
       <div className="flex flex-col justify-between ">
+        {movies.map((movie) => (
+          <div key={movie.id}>
+            <img
+              className="w-180 h-280"
+              src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+            />
+            <p>
+              {movie.title} {movie.year}
+            </p>
+          </div>
+        ))}
         <div>
           <img
-            src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+            // src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
             alt="moviePoster"
             className="bg-white h-14 w-14"
           />

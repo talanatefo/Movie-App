@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 function App() {
   return (
-    <div className="h-screen w-screen bg-gradient-to-b from-[#204725] to-[#030b07] text-white">
+    <div className=" w-screen bg-gradient-to-b from-[#204725] to-[#030b07] text-white">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
