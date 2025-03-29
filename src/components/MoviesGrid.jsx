@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 
-import MovieCard from "./MovieCard";
-
 function MoviesGrid() {
   const [movies, setMovies] = React.useState([]);
 
@@ -15,17 +13,18 @@ function MoviesGrid() {
   });
 
   return (
-    <div className="grid grid-cols-6 grid-rows-2 gap-4  mx-20 mt-5 text-white ">
+    <div className="grid grid-cols-5 grid-rows-2 gap-4  mx-20 mt-5 text-white ">
       {movies.map((movie) => (
+        // (movie.toLowerCase().StartsWith(movieInput)) &&
         <div
-          className="flex flex-col justify-between  p-2 bg-[#152D18] rounded-2xl "
+          className="flex flex-col justify-between  p-2 bg-[#152D18] rounded-2xl  "
           key={movie.id}
         >
           <img
             className="rounded-2xl"
             src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
           />
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-2">
             <div>
               <p>
                 {movie.title} {movie.year}
