@@ -1,11 +1,11 @@
 import React from "react"; // Import React
 import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import Favourites from "./pages/Favourites";
+import HomePage from "./pages/HomePage.jsx";
+import Favourites from "./pages/Favourites.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 
-import Navbar from "./components/Navbar";
-//import Searchbar from "../components/Searchbar";
-import Footer from "./components/Footer";
 function App() {
   return (
     <div className=" w-screen bg-gradient-to-b from-[#204725] to-[#030b07] text-white">
@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/favourites" element={<Favourites />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
       </Routes>
       <Footer />
     </div>
