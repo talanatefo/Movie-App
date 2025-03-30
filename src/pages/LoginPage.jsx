@@ -11,7 +11,7 @@ function LoginPage() {
           <form>
             <div className="flex-col p-10">
               <div className="bg-[#152D18] h-20">
-                <h1 className="text-4xl font-bold text-center pt-5">Login</h1>
+                <h1 className="text-4xl font-bold text-center pt-5">LOGIN</h1>
               </div>
               <div className="h-20 mt-20 pt-5 bg-[#204725] rounded-2xl text-center text-xl">
                 <input

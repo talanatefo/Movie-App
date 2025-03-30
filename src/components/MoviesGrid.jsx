@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function MoviesGrid() {
+function MoviesGrid(setMovieInput) {
   const [movies, setMovies] = React.useState([]);
 
   useEffect(() => {
@@ -10,7 +10,7 @@ function MoviesGrid() {
       .then((res) => res.json())
       .then((data) => setMovies(data.results))
       .catch((error) => console.error("error fetching data"));
-  });
+  }, []);
 
   return (
     <div className="grid grid-cols-5 grid-rows-2 gap-4  mx-20 mt-5 text-white ">
