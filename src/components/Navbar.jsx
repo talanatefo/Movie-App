@@ -12,7 +12,9 @@ font-bold"
         >
           home
         </p>
+        
         <p className="px-5 py-2">favourites</p>
+        
         <p className="px-5 py-2">login</p>
       </div>
     </div>

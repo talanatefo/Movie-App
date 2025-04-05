@@ -4,17 +4,22 @@ import MoviesGrid from "../components/MoviesGrid";
 function HomePage() {
   const [movieInput, setMovieInput] = useState("");
 
+  function searchMovies(movieInput){
+    if (movieInput === "" ){return } else{<MoviesGrid movieInput={movieInput}/>}
+  }
+
   return (
     <>
       <div className="bg-white w-2/5 rounded-full mx-auto text-gray-500  text-center py-2 ">
-        <input
+        
+        <form onSubmit={(e)=>{e.preventDefault()}}><input
           className="outline-none w-100"
           type="text"
           placeholder="Search any movie "
           onChange={(e) => setMovieInput(e.target.value)}
           value={movieInput}
         />
-        <button>
+        <button type="submit" onClick={searchMovies}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -30,10 +35,11 @@ function HomePage() {
             />
           </svg>
         </button>
+        </form>
       </div>
       <div>
-        {/* <Searchbar setMovieInput={setMovieInput} /> */}
-        <MoviesGrid />
+      
+        <MoviesGrid movieInput={movieInput}/>
       </div>
     </>
   );

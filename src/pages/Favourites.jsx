@@ -9,7 +9,7 @@ function Favourites() {
           Find all your favourite movies here
         </div>
 
-        <MoviesGrid />
+        
       </div>
     </>
   );
