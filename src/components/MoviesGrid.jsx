@@ -1,20 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-function MoviesGrid(setMovieInput) {
-  const [movies, setMovies] = React.useState([]);
+function MoviesGrid({movieInput}) {
+  const [movies, setMovies] = useState([]);
+  const [searchedMovies, setSearchedMovies] =useState([]);
+  
 
   useEffect(() => {
     let url =
-      " https://api.themoviedb.org/3/discover/movie?api_key=d93715c6e63a832323f7558c63304a39";
+      " https://api.themoviedb.org/3/movie/popular?api_key=d93715c6e63a832323f7558c63304a39";
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setMovies(data.results))
+      .then((data) => {setMovies(data.results)
+      setSearchedMovies(data.results)})
       .catch((error) => console.error("error fetching data"));
   }, []);
 
+  
+const moviesResults = movies.filter((movie)=> {return movie.title.toLowerCase().startsWith(movieInput)})
+
+setSearchedMovies(moviesResults)
+
   return (
     <div className="grid grid-cols-5 grid-rows-2 gap-4  mx-20 mt-5 text-white ">
-      {movies.map((movie) => (
+      {searchedMovies.map((movie) => (
         // (movie.toLowerCase().StartsWith(movieInput)) &&
         <div
           className="flex flex-col justify-between  p-2 bg-[#152D18] rounded-2xl  "
@@ -27,7 +35,7 @@ function MoviesGrid(setMovieInput) {
           <div className="flex justify-between mt-2">
             <div>
               <p>
-                {movie.title} {movie.year}
+                {movie.title} {movie.release_date}
               </p>
             </div>
             <div>
