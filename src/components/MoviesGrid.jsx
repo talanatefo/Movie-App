@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import MovieDetails from "../pages/MovieDetails";
 
 function MoviesGrid({ movieInput }) {
   const [movies, setMovies] = useState([]);
@@ -12,7 +13,7 @@ function MoviesGrid({ movieInput }) {
   }, []);
 
   return (
-    <div className="grid grid-cols-5 grid-rows-2 gap-4 mx-20 mt-5 text-white">
+    <div className="grid lg:grid-cols-5 md:grid-cols-3  sm:grid-cols-1 grid-rows-2 gap-4 mx-20 mt-5 text-white ">
       {movies.length > 0 ? (
         movies
           .filter((movie) =>
@@ -23,7 +24,7 @@ function MoviesGrid({ movieInput }) {
               className="flex flex-col justify-between p-2 bg-[#152D18] rounded-2xl"
               key={idx}
             >
-              <img
+              <img 
                 className="rounded-2xl"
                 src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
                 alt={movie.title} 
