@@ -6,9 +6,14 @@ import unfilledheart from "../assets/unfilledheart.png";
 function MoviesGrid({ movieInput }) {
   const [movies, setMovies] = useState([]);
   const[likeMovie, setLikeMovie] =useState(true)
+  const [details, setDetails] =useState(false)
 
   function favouriteMovie(){
     setLikeMovie(!likeMovie)
+  }
+
+  function MovieDetails(){
+setDetails(!details)
   }
 
   useEffect(() => {
@@ -27,8 +32,8 @@ function MoviesGrid({ movieInput }) {
             movie.title.toLowerCase().includes(movieInput.toLowerCase())
           )
           .map((movie, idx) => (
-            <div
-              className="flex flex-col justify-between p-2 bg-[#152D18] rounded-2xl"
+            <div onClick={MovieDetails }
+              className={`flex flex-col justify-between p-2 bg-[#152D18] rounded-2xl ${details?'fixed align-center top-0 left-0 w-2/5 h-2/5':''}`}
               key={idx}
             >
               <img 
@@ -36,6 +41,9 @@ function MoviesGrid({ movieInput }) {
                 src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
                 alt={movie.title} 
               />
+              <div>
+                
+              </div>
               <div className="flex justify-between mt-2">
                 <div>
                   <p>
