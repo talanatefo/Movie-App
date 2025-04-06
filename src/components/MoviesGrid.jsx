@@ -33,7 +33,7 @@ setDetails(!details)
           )
           .map((movie, idx) => (
             <div onClick={MovieDetails }
-              className={`flex flex-col justify-between p-2 bg-[#152D18] rounded-2xl ${details?'fixed align-center top-0 left-0 w-2/5 h-2/5':''}`}
+              className={`flex flex-col justify-between p-2 bg-[#152D18] rounded-2xl ${details.id?'fixed align-center top-0 left-0 w-2/5 h-2/5':''}`}
               key={idx}
             >
               <img 
