@@ -11,9 +11,9 @@ function App() {
     <div className=" w-screen bg-gradient-to-b from-[#204725] to-[#030b07] text-white">
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/" element={<LoginPage />}></Route>
         <Route path="/favourites" element={<Favourites />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/homepage" element={<HomePage />}></Route>
       </Routes>
       <Footer />
     </div>

@@ -1,14 +1,27 @@
 import React from "react";
-import backdrop from "../assets/backdrop.jfif";
+import background from "../assets/background.png";
+import { useNavigate } from 'react-router-dom'
+
+
 function LoginPage() {
+
+  const navigate = useNavigate();
+
+
+  function goToHome(e){
+    e.preventDefault();
+    navigate('/homepage')
+  }
   return (
-    <>
-      <div className="bg-black font-bold w-2/5 rounded-2xl mx-auto text-green-400  text-center py-2 ">
-        <h3>Watch the latest movies till you drop!</h3>
+    <div className="py-15"
+    style={{ backgroundImage: `url(${background})` }}
+  >
+      <div className="bg-black font-bold w-2/5 rounded-2xl mx-auto  text-green-400  text-center py-2 ">
+        <h3>Login to watch the latest movies!</h3>
       </div>
-      <div className=" grid grid-cols-2 gap-2 mx-15 mt-15">
+      <div className=" mt-15 w-2/5 text-center mx-auto ">
         <div className="bg-[#152D18] rounded-2xl  ">
-          <form>
+          <form onSubmit={goToHome}>
             <div className="flex-col p-10">
               <div className="bg-[#152D18] h-20">
                 <h1 className="text-4xl font-bold text-center pt-5">LOGIN</h1>
@@ -35,12 +48,13 @@ function LoginPage() {
             </div>
           </form>
         </div>
-        <div className=" rounded-2xl bg-[#152D18] ">
-          <img className="rounded-2xl" src={backdrop} alt="" />
+      
+        
           {/* <div className=" h-40 w-35 p-2 bg-[#152D18] rounded-2xl "></div> */}
-        </div>
+        
       </div>
-    </>
+      </div>
+    
   );
 }
 

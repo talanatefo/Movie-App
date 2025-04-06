@@ -16,7 +16,7 @@ function MoviesGrid({ movieInput }) {
       {movies.length > 0 ? (
         movies
           .filter((movie) =>
-            movie.title.toLowerCase().startsWith(movieInput.toLowerCase())
+            movie.title.toLowerCase().includes(movieInput.toLowerCase())
           )
           .map((movie, idx) => (
             <div

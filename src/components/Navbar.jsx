@@ -10,13 +10,13 @@ function Navbar() {
           MOVIES
         </Link>
         <div className="flex justify-between ml-auto ">
-      <Link to="/" className="px-5 py-2 font-bold">
+      <Link to="/homepage" className="px-5 py-2 font-bold">
           home
         </Link>
         <Link to="/favourites" className="px-5 py-2 font-bold">
         favourites
         </Link>
-        <Link to="/login" className="px-5 py-2 font-bold">
+        <Link to="/" className="px-5 py-2 font-bold">
         login
         </Link>
       </div>
