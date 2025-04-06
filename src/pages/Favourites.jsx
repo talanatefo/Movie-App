@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import MoviesGrid from "../components/MoviesGrid";
 
 function Favourites() {
+
   return (
   
       <div className="h-screen"> 

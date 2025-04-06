@@ -22,7 +22,7 @@ function HomePage() {
           value={movieInput}
         />
         </div>
-        <div className="hidden sm:block">
+        <div className="hidden sm:block ml-30">
           <svg 
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
