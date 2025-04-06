@@ -19,23 +19,23 @@ function LoginPage() {
       <div className="bg-black font-bold w-2/5 rounded-2xl mx-auto  text-green-400  text-center py-2 ">
         <h3>Login to watch the latest movies!</h3>
       </div>
-      <div className=" mt-15 w-2/5 text-center mx-auto ">
-        <div className="bg-[#152D18] rounded-2xl  ">
+      <div className=" mt-15 w-4/5 md:w-2/5 text-center mx-auto ">
+        <div className="bg-[#152D18] rounded-2xl  xs:w-2/5  ">
           <form onSubmit={goToHome}>
             <div className="flex-col p-10">
               <div className="bg-[#152D18] h-20">
                 <h1 className="text-4xl font-bold text-center pt-5">LOGIN</h1>
               </div>
-              <div className="h-20 mt-20 pt-5 bg-[#204725] rounded-2xl text-center text-xl">
+              <div className="h-20   mt-20 pt-5 bg-[#204725] rounded-2xl text-center text-xl">
                 <input
-                  className="outline-none w-100"
+                  className="outline-none w-4/5"
                   type="email"
                   placeholder="enter email address"
                 />
               </div>
               <div className="h-20 mt-4 pt-5  bg-[#204725] rounded-2xl text-center text-xl ">
                 <input
-                  className="outline-none w-100"
+                  className="outline-none w-4/5"
                   type="password"
                   placeholder="enter password"
                 />
