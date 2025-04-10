@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
 import greenheart from "../assets/greenheart.png";
 import unfilledheart from "../assets/unfilledheart.png";
+import { Link } from "react-router-dom";
+
 
 function MoviesGrid({ movieInput }) {
   const [movies, setMovies] = useState([]);
-  const[likeMovie, setLikeMovie] =useState(true)
+  const[likedMovies, setLikedMovies] = useState(()=>{
+    const saved = localStorage.getItem("likedMovies");
+    return saved ? JSON.parse(saved) : {};
+  })
 
-  function favouriteMovie(){
+  useEffect(()=> {
+    localStorage.setItem("likedMovies", JSON.stringify(likedMovies));
+  }, [likedMovies])
+
+  function favouriteMovie(movieID){
     // e.setPropagation();
-    setLikeMovie(!likeMovie)
+    setLikedMovies((prevState) => ({
+      ...prevState, 
+      [movieID]: !prevState[movieID],
+    }));
   }
 
 
@@ -23,8 +35,7 @@ function MoviesGrid({ movieInput }) {
   return (
     <div className="grid lg:grid-cols-5 md:grid-cols-3  sm:grid-cols-1 grid-rows-2 gap-4 mx-20 mt-5 text-white ">
       {movies.length > 0 ? (
-        movies
-          .filter((movie) =>
+        movies.filter((movie) =>
             movie.title.toLowerCase().includes(movieInput.toLowerCase())
           )
           .map((movie) => (
@@ -32,24 +43,24 @@ function MoviesGrid({ movieInput }) {
               className= 'flex flex-col justify-between p-2 bg-[#152D18] rounded-2xl transition-transform duration-300 ease-in-out transform hover:scale-111'
               key={movie.id}
             >
-              <img 
-                className="rounded-2xl "
-                src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
-                alt={movie.title} 
-              />
-              <div>
-                
+              <Link to={`/movie/${movie.id}`}>
+                <img 
+                  className="rounded-2xl "
+                  src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+                  alt={movie.title} 
+                />
+              </Link>
+              
+              <div>   
               </div>
               <div className="flex justify-between mt-2">
                 <div>
-                  <p>
-                    {movie.title} 
-                  </p>
+                  <p>{movie.title} </p>
                   <p>{movie.release_date.split('-')[0]}</p>
                 </div>
                 <div>
-                  <button onClick={favouriteMovie}>
-                  <img className="w-12 h-12"src={likeMovie?unfilledheart:greenheart} alt="" />
+                  <button onClick={() => favouriteMovie(movie.id)}>
+                    <img className="w-12 h-12" src={likedMovies[movie.id] ? greenheart : unfilledheart} alt="" />
                   </button>
                 </div>
               </div>
