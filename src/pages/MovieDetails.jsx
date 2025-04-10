@@ -19,7 +19,7 @@ function MovieDetails() {
   }
 
   return (
-    <div className="text-white p-10 bg-[#0F1C14] min-h-screen rounded-2xl xs:mx-2 md:mx-10">
+    <div className="text-white p-10 bg-[#0F1C14] min-h-screen md:w-3/5 align-center mx-auto rounded-2xl xs:4/5">
 
       <div className="flex flex-col md:flex-row gap-10">
         <img

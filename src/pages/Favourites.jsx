@@ -28,6 +28,7 @@ function Favourites() {
             (likedMovies[movie.id] ) &&
              (<div
                 className="bg-[#152D18] p-2 rounded-2xl"
+
                 key={movie.id}
               >
                 
