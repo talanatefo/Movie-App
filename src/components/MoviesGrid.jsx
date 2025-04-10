@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from "react";
-import MovieDetails from "../pages/MovieDetails";
 import greenheart from "../assets/greenheart.png";
 import unfilledheart from "../assets/unfilledheart.png";
 
 function MoviesGrid({ movieInput }) {
   const [movies, setMovies] = useState([]);
   const[likeMovie, setLikeMovie] =useState(true)
-  const [details, setDetails] =useState(false)
 
   function favouriteMovie(){
+    // e.setPropagation();
     setLikeMovie(!likeMovie)
   }
 
-  function MovieDetails(){
-setDetails(!details)
-  }
 
   useEffect(() => {
     let url ="https://api.themoviedb.org/3/movie/popular?api_key=d93715c6e63a832323f7558c63304a39"; 
@@ -31,13 +27,13 @@ setDetails(!details)
           .filter((movie) =>
             movie.title.toLowerCase().includes(movieInput.toLowerCase())
           )
-          .map((movie, idx) => (
-            <div onClick={MovieDetails }
-              className={`flex flex-col justify-between p-2 bg-[#152D18] rounded-2xl ${details.id?'fixed align-center top-0 left-0 w-2/5 h-2/5':''}`}
-              key={idx}
+          .map((movie) => (
+            <div 
+              className= 'flex flex-col justify-between p-2 bg-[#152D18] rounded-2xl transition-transform duration-300 ease-in-out transform hover:scale-111'
+              key={movie.id}
             >
               <img 
-                className="rounded-2xl"
+                className="rounded-2xl "
                 src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
                 alt={movie.title} 
               />
@@ -60,6 +56,7 @@ setDetails(!details)
             </div>
           ))
       ) : (
+        
         <p>Movies were not found</p> 
       )}
     </div>
